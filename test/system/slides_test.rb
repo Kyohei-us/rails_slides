@@ -14,8 +14,8 @@ class SlidesTest < ApplicationSystemTestCase
     visit slides_url
     click_on "New Slide"
 
-    fill_in "Id", with: @slide.id
     fill_in "Name", with: @slide.name
+    fill_in "Slideid", with: @slide.slideId
     fill_in "Url", with: @slide.url
     fill_in "User", with: @slide.user_id
     click_on "Create Slide"
@@ -28,8 +28,8 @@ class SlidesTest < ApplicationSystemTestCase
     visit slides_url
     click_on "Edit", match: :first
 
-    fill_in "Id", with: @slide.id
     fill_in "Name", with: @slide.name
+    fill_in "Slideid", with: @slide.slideId
     fill_in "Url", with: @slide.url
     fill_in "User", with: @slide.user_id
     click_on "Update Slide"

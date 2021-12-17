@@ -64,6 +64,6 @@ class SlidesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def slide_params
-      params.require(:slide).permit(:name, :id, :user_id, :url)
+      params.require(:slide).permit(:name, :user_id, :slideId, :url)
     end
 end

@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Id</th>
       <th>User</th>
+      <th>Slideid</th>
       <th>Url</th>
       <th colspan="3"></th>
     </tr>
@@ -17,8 +17,8 @@
     <% @slides.each do |slide| %>
       <tr>
         <td><%= slide.name %></td>
-        <td><%= slide.id %></td>
         <td><%= slide.user_id %></td>
+        <td><%= slide.slideId %></td>
         <td><%= slide.url %></td>
         <td><%= link_to 'Show', slide %></td>
         <td><%= link_to 'Edit', edit_slide_path(slide) %></td>

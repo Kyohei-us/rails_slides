@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  id: 1
   user_id: 1
+  slideId: 1
   url: MyString
 
 two:
   name: MyString
-  id: 1
   user_id: 1
+  slideId: 1
   url: MyString

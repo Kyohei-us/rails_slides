@@ -17,7 +17,7 @@ class SlidesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create slide" do
     assert_difference('Slide.count') do
-      post slides_url, params: { slide: { id: @slide.id, name: @slide.name, url: @slide.url, user_id: @slide.user_id } }
+      post slides_url, params: { slide: { name: @slide.name, slideId: @slide.slideId, url: @slide.url, user_id: @slide.user_id } }
     end
 
     assert_redirected_to slide_url(Slide.last)
@@ -34,7 +34,7 @@ class SlidesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update slide" do
-    patch slide_url(@slide), params: { slide: { id: @slide.id, name: @slide.name, url: @slide.url, user_id: @slide.user_id } }
+    patch slide_url(@slide), params: { slide: { name: @slide.name, slideId: @slide.slideId, url: @slide.url, user_id: @slide.user_id } }
     assert_redirected_to slide_url(@slide)
   end
 
