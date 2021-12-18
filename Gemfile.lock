@@ -86,7 +86,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.11.3)
+    jbuilder (2.11.4)
       activesupport (>= 5.0.0)
     loofah (2.13.0)
       crass (~> 1.0.2)
@@ -222,7 +222,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.0.3p157
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.33
