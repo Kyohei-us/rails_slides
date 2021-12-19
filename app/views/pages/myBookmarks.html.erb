@@ -1,0 +1,21 @@
+<h1>Pages#myBookmarks</h1>
+<p>Find me in app/views/pages/myBookmarks.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.bookmarks.each do |bookmark| %>
+      <tr>
+        <td><%= link_to bookmark.name, bookmark.url %></td>
+        <td><%= bookmark.url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

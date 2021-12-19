@@ -1,2 +1,0 @@
-class Slide < ApplicationRecord
-end
