@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Track Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Music track</th>
+      <th>Body</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @track_notes.each do |track_note| %>
+      <tr>
+        <td><%= track_note.music_track_id %></td>
+        <td><%= track_note.body %></td>
+        <td><%= track_note.user_id %></td>
+        <td><%= link_to 'Show', track_note %></td>
+        <td><%= link_to 'Edit', edit_track_note_path(track_note) %></td>
+        <td><%= link_to 'Destroy', track_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Track Note', new_track_note_path %>

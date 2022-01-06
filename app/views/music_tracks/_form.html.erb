@@ -1,0 +1,27 @@
+<%= form_with(model: music_track) do |form| %>
+  <% if music_track.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(music_track.errors.count, "error") %> prohibited this music_track from being saved:</h2>
+
+      <ul>
+        <% music_track.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spotifyURI %>
+    <%= form.text_field :spotifyURI %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

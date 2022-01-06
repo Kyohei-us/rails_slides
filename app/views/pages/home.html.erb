@@ -4,6 +4,7 @@
 <% if user_signed_in? %> 
     <p><%= current_user.email %></p>
     <p> <%= link_to "My Bookmarks", "/myBookmarks" %> </p>
+    <p> <%= link_to "My Track Notes", "/myTrackNotes" %> </p>
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>  
 <% else %>
     <%= link_to "Sign In", new_user_session_path %> <br />

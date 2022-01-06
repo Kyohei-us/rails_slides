@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @music_track.name %>
+</p>
+
+<p>
+  <strong>Spotify URI:</strong>
+  <%= @music_track.spotifyURI %>
+</p>
+
+<div>
+  <strong>Preview Player:</strong>
+  <iframe class="spotify_compact preview_player" src=<%= spotifyURItoEmbed(@music_track.spotifyURI) %> width="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
+
+<div>
+  <strong>Track Notes by Users:</strong>
+  <ul>
+    <% @music_track.track_notes.each do |note| %>
+      <li><%= note.body %> by <%= User.find(note.user_id).email %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to 'Edit', edit_music_track_path(@music_track) %> |
+<%= link_to 'Back', music_tracks_path %>

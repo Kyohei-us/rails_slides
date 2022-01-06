@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Music Tracks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Spotify URI</th>
+      <th>Preview Player</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @music_tracks.each do |music_track| %>
+      <tr>
+        <td><%= music_track.name %></td>
+        <td><%= music_track.spotifyURI %></td>
+        <td>
+          <iframe class="spotify_compact preview_player" src=<%= spotifyURItoEmbed(music_track.spotifyURI) %> width="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </td>
+        <td><%= link_to 'Show', music_track %></td>
+        <td><%= link_to 'Edit', edit_music_track_path(music_track) %></td>
+        <td><%= link_to 'Destroy', music_track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Music Track', new_music_track_path %>

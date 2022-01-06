@@ -1,0 +1,27 @@
+<h1>Pages#myTrackNotes</h1>
+<p>Find me in app/views/pages/myTrackNotes.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>User Id</th>
+      <th>Track Id</th>
+      <th>Track</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.track_notes.each do |note| %>
+      <tr>
+        <td><%= note.body %></td>
+        <td><%= note.user_id %></td>
+        <td><%= note.music_track_id %></td>
+        <td>
+          <iframe class="spotify_compact preview_player" src=<%= spotifyURItoEmbed(MusicTrack.find(note.music_track_id).spotifyURI) %> width="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
