@@ -1,6 +1,6 @@
 console.log("Loaded lastfmHelpers.js")
 
-window.onload = wonload
+window.onpageshow = wonload
 
 function wonload() {
     let prevSize = "medium"
