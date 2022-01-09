@@ -1,5 +1,7 @@
 <div class="form_wrapper">
-  <%= render 'form', track_note: @track_note, purpose: "Edit Track Note" %>
-  <%= link_to 'Show', @track_note %> |
-  <%= link_to 'Back', track_notes_path %>
+  <div><%= render 'form', track_note: @track_note, purpose: "Edit Track Note" %></div>
+  <div>
+    <%= link_to 'Show', @track_note %> |
+    <%= link_to 'Back', track_notes_path %>
+  </div>
 </div>
