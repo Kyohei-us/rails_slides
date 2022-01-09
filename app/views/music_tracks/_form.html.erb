@@ -18,16 +18,15 @@
       <%= purpose %>
     </h1>
     <div class="field">
-      <%= form.label :name, :class=> "form_label" %>
-      <%= form.text_field :name, :class=> "form_text_field" %>
+      <%= form.label :name, :class => "form_label" %>
+      <%= form.text_field :name, :class => "form_text_field" %>
     </div>
     <div class="field">
-      <%= form.label :spotifyURI, :class=> "form_label" %>
+      <%= form.label :spotifyURI, :class => "form_label" %>
       <%= form.text_field :spotifyURI, :class=> "form_text_field" %>
     </div>
     <div class="actions">
-      <%= form.submit :Submit, :class=> "mt-4 w-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-indigo-100
-            py-2 rounded-md text-lg tracking-wide" %>
+      <%= form.submit :Submit, :class => "form_submit" %>
     </div>
   </div>
 <% end %>

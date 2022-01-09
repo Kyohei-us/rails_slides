@@ -10,6 +10,9 @@
     </div>
   <% end %>
   <div class="form_whole">
+    <h1 class="text-center text-2xl font-semibold text-gray-600">
+      <%= purpose %>
+    </h1>
     <div class="field">
       <%= form.label :lastfmUsername, :class => "form_label" %>
       <%= form.text_field :lastfmUsername, :class => "form_text_field" %>
@@ -19,7 +22,7 @@
       <%= form.number_field :user_id, :class => "form_text_field", value:current_user.id, readonly: true %>
     </div>
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit :Submit, :class => "form_submit" %>
     </div>
   </div>
 <% end %>
