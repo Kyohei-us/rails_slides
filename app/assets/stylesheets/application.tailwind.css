@@ -27,6 +27,10 @@
     @apply relative inline-block w-full text-gray-700;
 }
 
+.form_submit {
+    @apply mt-4 w-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-indigo-100 py-2 rounded-md text-lg tracking-wide;
+}
+
 .link {
     @apply text-xs inline-flex items-center font-bold capitalize px-3 py-1 bg-blue-200 text-blue-700 rounded-full;
 }
