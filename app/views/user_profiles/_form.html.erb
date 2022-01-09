@@ -1,0 +1,25 @@
+<%= form_with(model: user_profile) do |form| %>
+  <% if user_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
+      <ul>
+        <% user_profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form_whole">
+    <div class="field">
+      <%= form.label :lastfmUsername, :class => "form_label" %>
+      <%= form.text_field :lastfmUsername, :class => "form_text_field" %>
+    </div>
+    <div class="field">
+      <%= form.label :user_id, :class => "form_label" %>
+      <%= form.number_field :user_id, :class => "form_text_field", value:current_user.id, readonly: true %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>

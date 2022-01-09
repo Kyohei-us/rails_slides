@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Music track:</strong>
   <%= @track_note.music_track_id %>
 </p>
-
 <p>
   <strong>Body:</strong>
   <%= @track_note.body %>
 </p>
-
 <p>
   <strong>User:</strong>
   <%= @track_note.user_id %>
 </p>
-
 <%= link_to 'Edit', edit_track_note_path(@track_note) %> |
 <%= link_to 'Back', track_notes_path %>

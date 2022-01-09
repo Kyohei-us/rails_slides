@@ -1,5 +1,4 @@
-<h1>New Track Note</h1>
-
-<%= render 'form', track_note: @track_note %>
-
-<%= link_to 'Back', track_notes_path %>
+<div class="form_wrapper">
+  <%= render 'form', track_note: @track_note, purpose: "Add Track Note" %>
+  <%= link_to 'Back', track_notes_path %>
+</div>

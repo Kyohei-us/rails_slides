@@ -2,7 +2,6 @@
   <% if track_note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(track_note.errors.count, "error") %> prohibited this track_note from being saved:</h2>
-
       <ul>
         <% track_note.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,23 +9,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :music_track_id %>
-    <%= form.number_field :music_track_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, value:current_user.id, readonly: true %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form_whole">
+    <h1 class="text-center text-2xl font-semibold text-gray-600">
+      <%= purpose %>
+    </h1>
+    <div class="field form_select_field_wrapper">
+      <%= form.label :music_track_id, :class => "form_label" %>
+      <%= form.select :music_track_id, @arrayOfMusicTrackIds, { id: "music_track_id"}, :class => "form_select" %>
+    </div>
+    <div class="field">
+      <%= form.label :body, :class => "form_label" %>
+      <%= form.text_area :body, :class => "form_text_field" %>
+    </div>
+    <div class="field">
+      <%= form.label :user_id, :class => "form_label" %>
+      <%= form.number_field :user_id, :class => "form_text_field", value:current_user.id, readonly: true %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

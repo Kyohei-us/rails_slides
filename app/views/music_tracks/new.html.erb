@@ -1,5 +1,4 @@
-<h1>New Music Track</h1>
-
-<%= render 'form', music_track: @music_track %>
-
-<%= link_to 'Back', music_tracks_path %>
+<div class="form_wrapper">
+  <%= render 'form' , music_track: @music_track, purpose: "Add Music Track" %>
+  <%= link_to 'See full list of Music Tracks' , music_tracks_path %>
+</div>

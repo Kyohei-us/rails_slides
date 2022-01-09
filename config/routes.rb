@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :user_profiles
   root 'pages#home'
   get '/myBookmarks', to: "pages#myBookmarks"
   get '/myTrackNotes', to: "pages#myTrackNotes"
+  get '/lastfmcallback', to: "pages#home"
   devise_for :users
   resources :bookmarks
   resources :track_notes

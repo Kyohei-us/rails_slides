@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<h1>User Profiles</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Lastfmusername</th>
+      <th>User</th>
+      <th>Belongs to</th>
+      <th colspan="3" class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_profiles.each do |user_profile| %>
+      <tr>
+        <td><%= user_profile.lastfmUsername %></td>
+        <td><%= user_profile.user_id %></td>
+        <td><%= user_profile.user.email %></td>
+        <td><%= link_to 'Show', user_profile %></td>
+        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+        <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New User Profile', new_user_profile_path %>

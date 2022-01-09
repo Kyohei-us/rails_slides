@@ -1,27 +1,33 @@
 <%= form_with(model: music_track) do |form| %>
   <% if music_track.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(music_track.errors.count, "error") %> prohibited this music_track from being saved:</h2>
-
+      <h2>
+        <%= pluralize(music_track.errors.count, "error" ) %> prohibited this music_track from being saved:
+      </h2>
       <ul>
         <% music_track.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li>
+            <%= error.full_message %>
+          </li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :spotifyURI %>
-    <%= form.text_field :spotifyURI %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form_whole">
+    <h1 class="text-center text-2xl font-semibold text-gray-600">
+      <%= purpose %>
+    </h1>
+    <div class="field">
+      <%= form.label :name, :class=> "form_label" %>
+      <%= form.text_field :name, :class=> "form_text_field" %>
+    </div>
+    <div class="field">
+      <%= form.label :spotifyURI, :class=> "form_label" %>
+      <%= form.text_field :spotifyURI, :class=> "form_text_field" %>
+    </div>
+    <div class="actions">
+      <%= form.submit :Submit, :class=> "mt-4 w-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-indigo-100
+            py-2 rounded-md text-lg tracking-wide" %>
+    </div>
   </div>
 <% end %>

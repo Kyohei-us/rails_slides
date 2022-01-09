@@ -13,10 +13,22 @@ class TrackNotesController < ApplicationController
   # GET /track_notes/new
   def new
     @track_note = TrackNote.new
+    @arrayOfMusicTrackIds = []
+    MusicTrack.find_each do |track|
+      @arrayOfMusicTrackIds << [track.name,track.id]
+    end
+    print("-----------------------array of music track ids: \n")
+    print(@arrayOfMusicTrackIds)
   end
 
   # GET /track_notes/1/edit
   def edit
+    @arrayOfMusicTrackIds = []
+    MusicTrack.find_each do |track|
+      @arrayOfMusicTrackIds << [track.name,track.id]
+    end
+    print("-----------------------array of music track ids: \n")
+    print(@arrayOfMusicTrackIds)
   end
 
   # POST /track_notes or /track_notes.json
