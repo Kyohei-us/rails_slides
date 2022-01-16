@@ -32,4 +32,10 @@ module PagesHelper
             return false
         end
     end
+
+    def getTrackInfo(trackName, artistName)
+        lastfmAPIkey = Rails.application.credentials.lastfmAPIkey
+        response = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=#{lastfmAPIkey}&artist=#{artistName}&track=#{trackName}&format=json", format: :plain)
+        return response
+    end
 end

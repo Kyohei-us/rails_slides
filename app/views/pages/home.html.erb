@@ -84,15 +84,20 @@
               </p>
             </div>
           <% else %>
-            <div class="flex items-start px-4 py-6 ">
+            <div class="flex items-start px-4 py-6" name="trackWrapper">
               <% track[:image].each do |img| %>
                 <img class="object-cover mr-4 shadow" name=<%=img[:size] %> src=<%= img[:"#text"] %>
                                     hidden />
               <% end %>
               <p
                                         class="flex items-center justify-between text-lg font-semibold text-gray-900 -mt-1">
-                <%= getTrackName(track) %> by <%= getTrackArtist(track) %>
+                <span class="trackName"><%= getTrackName(track) %></span> by <span class="artist"><%= getTrackArtist(track) %></span>
               </p>
+              <br />
+              <div class="moreTrackInfoWrapper">
+                <button class="moreTrackInfoButton" type="button">More Info</button>
+                <div class="moreTrackInfo" hidden>Track Info:</div>
+              </div>
             </div>
           <% end %>
         <% end %>

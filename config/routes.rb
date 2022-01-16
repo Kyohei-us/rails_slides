@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/myBookmarks', to: "pages#myBookmarks"
   get '/myTrackNotes', to: "pages#myTrackNotes"
   get '/lastfmcallback', to: "pages#home"
+  get '/trackInfo', to: "pages#trackInfo"
   devise_for :users
   resources :bookmarks
   resources :track_notes
