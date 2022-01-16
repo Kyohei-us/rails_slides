@@ -22,6 +22,41 @@ function wonload() {
             })
         })
     })
+    document.querySelectorAll('div[name="trackWrapper"]').forEach(wrapper => {
+        let trackName = wrapper.querySelector('span[class="trackName"]')
+        let artist = wrapper.querySelector('span[class="artist"]')
+        let moreTrackInfoWrapper = wrapper.querySelector('div[class="moreTrackInfoWrapper"]')
+        let button = moreTrackInfoWrapper.querySelector('button[class="moreTrackInfoButton"]')
+        button.addEventListener("click", function () {
+            console.log("clicked")
+            let moreTrackInfo = moreTrackInfoWrapper.querySelector('div[class="moreTrackInfo"]')
+            if(moreTrackInfo.hidden === true){
+                fetch(`http://localhost:3000/trackInfo?trackName=${trackName.textContent}&artist=${artist.textContent}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    moreTrackInfo.textContent = '';
+                    moreTrackInfo.appendChild(createH2("Artist:" + data.track.artist.name))
+                    moreTrackInfo.appendChild(createH2("Album:" + data.track.album.title))
+                    moreTrackInfo.appendChild(createH2("Playcount:" + data.track.playcount))
+                    moreTrackInfo.appendChild(createH2("URL:" + data.track.url))
+                });
+            }
+            moreTrackInfo.hidden = !moreTrackInfo.hidden
+        })
+    })
+}
+
+function createH2(text) {
+    let h2 = document.createElement("h2");
+    let textNode = document.createTextNode(text)
+    h2.appendChild(textNode);
+    return h2;
+}
+
+function createDiv() {
+    let div = document.createElement("div");
+    return div;
 }
 
 function lastfmImageSize() {
@@ -31,3 +66,4 @@ function lastfmImageSize() {
     }
     return "N/B"
 }
+
