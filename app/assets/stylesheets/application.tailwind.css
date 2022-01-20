@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+iframe.spotify_compact {
+    height: 80px;
+}
+
+iframe.spotify_large {
+    height: 380px;
+}
+
 /*! purgecss start ignore */
 .form_label {
     @apply block mb-1 text-gray-600 font-semibold;
@@ -44,6 +52,6 @@ th {
 }
 
 td {
-    @apply px-5 py-5 border-b border-gray-200 bg-white text-sm;
+    @apply px-5 py-5 border-b border-gray-200 bg-gray-300 text-base;
 }
 /*! purgecss end ignore */
