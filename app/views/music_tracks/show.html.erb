@@ -9,7 +9,7 @@
 </p>
 <div>
   <strong>Preview Player:</strong>
-  <iframe class="spotify_compact preview_player" src=<%= spotifyURItoEmbed(@music_track.spotifyURI) %> width="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  <%= handleSpotifyPreview(@music_track) %> 
 </div>
 <div>
   <strong>Track Notes by Users:</strong>

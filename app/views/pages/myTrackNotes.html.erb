@@ -1,29 +1,45 @@
-<h1>Pages#myTrackNotes</h1>
-<p>Find me in app/views/pages/myTrackNotes.html.erb</p>
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>User Id</th>
-      <th>Track Id</th>
-      <th>Track</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% current_user.track_notes.each do |note| %>
-      <tr>
-        <td><%= note.body %></td>
-        <td><%= note.user_id %></td>
-        <td><%= note.music_track_id %></td>
-        <td>
-          <iframe class="spotify_compact preview_player w-[300px] h-[80px]" src=<%= spotifyURItoEmbed(MusicTrack.find(note.music_track_id).spotifyURI) %> width="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div>
-<%= link_to "Add new Track Note", new_track_note_path, :class => "link" %>
-<%= link_to "Add new Music Track", new_music_track_path, :class => "link" %>
-</div>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="h-screen bg-sky-500">
+  <h1>Pages#myTrackNotes</h1>
+  <p>Find me in app/views/pages/myTrackNotes.html.erb</p>
+  <div>
+    <div class="m-auto w-11/12 py-4">
+      <table>
+        <thead>
+          <tr>
+            <th>Body</th>
+            <th>User Id</th>
+            <th>Track Id</th>
+            <th>Track Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.track_notes.each do |note| %>
+            <tr>
+              <td>
+                <%= note.body %>
+              </td>
+              <td>
+                <%= note.user_id %>
+              </td>
+              <td>
+                <%= note.music_track_id %>
+              </td>
+              <td>
+                <%= handleSpotifyPreview(MusicTrack.find(note.music_track_id)) %>
+              </td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <%= link_to "Add new Track Note" , new_track_note_path, :class=> "link" %>
+        <%= link_to "Add new Music Track" , new_music_track_path, :class=> "link" %>
+        <%= link_to 'home', '/', :class => "link" %>
+    </div>
+  </div>
+</body>

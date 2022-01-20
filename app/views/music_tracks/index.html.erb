@@ -15,7 +15,7 @@
         <td><%= music_track.name %></td>
         <td><%= music_track.spotifyURI %></td>
         <td>
-          <iframe class="spotify_compact preview_player w-[300px] h-[80px]" src=<%= spotifyURItoEmbed(music_track.spotifyURI) %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <%= handleSpotifyPreview(music_track) %> 
         </td>
         <td><%= link_to 'Show', music_track %></td>
         <td><%= link_to 'Edit', edit_music_track_path(music_track) %></td>
