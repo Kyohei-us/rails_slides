@@ -30,17 +30,20 @@ function wonload() {
         button.addEventListener("click", function () {
             console.log("clicked")
             let moreTrackInfo = moreTrackInfoWrapper.querySelector('div[class="moreTrackInfo"]')
-            if(moreTrackInfo.hidden === true){
-                fetch(`http://localhost:3000/trackInfo?trackName=${trackName.textContent}&artist=${artist.textContent}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    moreTrackInfo.textContent = '';
-                    moreTrackInfo.appendChild(createH2("Artist:" + data.track.artist.name))
-                    moreTrackInfo.appendChild(createH2("Album:" + data.track.album.title))
-                    moreTrackInfo.appendChild(createH2("Playcount:" + data.track.playcount))
-                    moreTrackInfo.appendChild(createH2("URL:" + data.track.url))
-                });
+            if (moreTrackInfo.hidden === true) {
+                fetch(`${window.location.protocol + "//" + window.location.host}/trackInfo?trackName=${encodeURIComponent(trackName.textContent.trim())}&artist=${encodeURIComponent(artist.textContent.trim())}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        moreTrackInfo.textContent = '';
+                        moreTrackInfo.appendChild(createH2("Artist:" + data.track.artist.name))
+                        if (data.track.album) {
+                            moreTrackInfo.appendChild(createH2("Album:" + data.track.album.title))
+                        }
+                        moreTrackInfo.appendChild(createH2("Playcount:" + data.track.playcount))
+                        moreTrackInfo.appendChild(createH2("URL:" + data.track.url))
+                    })
+                    .catch(error => { console.log(error); moreTrackInfo.textContent = ''; });
             }
             moreTrackInfo.hidden = !moreTrackInfo.hidden
         })
