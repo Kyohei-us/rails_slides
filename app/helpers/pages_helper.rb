@@ -1,10 +1,13 @@
 module PagesHelper
     def spotifyURItoEmbed(uri)
+        if (!uri)
+            return ""
+        end
         startSpotify = "https://open.spotify.com/"
         if uri.start_with?(startSpotify)
-            uri.sub(startSpotify, startSpotify+"embed/")  
+            return uri.sub(startSpotify, startSpotify+"embed/")  
         else 
-            uri
+            return uri
         end
     end
 
@@ -35,7 +38,8 @@ module PagesHelper
 
     def getTrackInfo(trackName, artistName)
         lastfmAPIkey = Rails.application.credentials.lastfmAPIkey
-        response = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=#{lastfmAPIkey}&artist=#{artistName}&track=#{trackName}&format=json", format: :plain)
+        target = "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=#{lastfmAPIkey}&artist=#{CGI.escape(artistName)}&track=#{CGI.escape(trackName)}&format=json"
+        response = HTTParty.get(target, format: :plain)
         return response
     end
 end
