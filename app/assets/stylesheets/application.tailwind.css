@@ -24,7 +24,7 @@ iframe.spotify_large {
 }
 
 .form_wrapper {
-    @apply h-screen bg-gradient-to-br from-blue-600 to-indigo-600 flex flex-col justify-center items-center w-full;
+    @apply h-screen flex flex-col justify-center items-center w-full;
 }
 
 .form_select {
