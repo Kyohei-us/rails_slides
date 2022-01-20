@@ -1,110 +1,127 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<h1>Pages#home</h1>
-<p class="heading-gradient">Find me in app/views/pages/home.html.erb</p>
-<% if user_signed_in? %>
-  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-      <div class="text-sm lg:flex-grow">
-        <p class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          <%= link_to "My Bookmarks" , "/myBookmarks" %>
-        </p>
-        <p class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          <%= link_to "My Track Notes" , "/myTrackNotes" %>
-        </p>
-        <p class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          <%= link_to "Sign out" , destroy_user_session_path, method: :delete %>
-        </p>
-      </div>
-      <div>
-        <p class="inline-block rounded text-white mt-0">
-          <%= link_to user_profiles_path do %>
-            <svg class="w-5 h-5">
-              <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 10 0 C 4.46875 0 0 4.480469 0 10 C 0 15.523438 4.476562 20 10 20 C 15.550781 20 20 15.503906 20 10 C 20 4.46875 15.515625 0 10 0 Z M 15.144531 15.890625 C 13.71875 17.140625 11.914062 17.820312 10 17.820312 C 8.085938 17.820312 6.28125 17.140625 4.855469 15.890625 C 4.660156 15.722656 4.574219 15.460938 4.625 15.210938 C 5.117188 12.804688 6.652344 10.910156 8.601562 10.285156 C 7.582031 9.683594 6.882812 8.445312 6.882812 7.015625 C 6.882812 4.992188 8.28125 3.355469 10 3.355469 C 11.71875 3.355469 13.117188 4.992188 13.117188 7.015625 C 13.117188 8.445312 12.417969 9.683594 11.398438 10.285156 C 13.351562 10.910156 14.882812 12.804688 15.375 15.210938 C 15.425781 15.460938 15.339844 15.722656 15.144531 15.890625 Z M 15.144531 15.890625 "/>
-            </svg>
-          <% end %>
-        </p>
-      </div>
-    </div>
-  </nav>
-<% else %>
-  <p class="link">
-    <%= link_to "Sign In" , new_user_session_path %>
-  </p>
-  <p class="link">
-    <%= link_to "Sign Up" , new_user_registration_path %>
-  </p>
-<% end %>
-<div class="bg-sky-500">
-  <div class="flex justify-center">
-    <h2>Recent Tracks</h2>
-  </div>
-  <% if current_user && current_user.user_profile && current_user.user_profile.lastfmUsername %>
-    <%# Choose Image Size %>
-    <div>
-      <div class="flex justify-center">
-        <div class="flex flex-row">
-          <label for="small" class="inline-flex items-center mt-3 px-3 ">
-            <input type="radio" name="imagesize" value="small">
-            <span class="ml-2 text-gray-700">small</span>
-          </label>
-          <label for="medium" class="inline-flex items-center mt-3 px-3 ">
-            <input type="radio" name="imagesize" value="medium" checked>
-            <span class="ml-2 text-gray-700">medium</span>
-          </label>
-          <label for="large" class="inline-flex items-center mt-3 px-3 ">
-            <input type="radio" name="imagesize" value="large">
-            <span class="ml-2 text-gray-700">large</span>
-          </label>
-          <label for="extralarge" class="inline-flex items-center mt-3 px-3 ">
-            <input type="radio" name="imagesize" value="extralarge">
-            <span class="ml-2 text-gray-700">extralarge</span>
-          </label>
+
+<body class="h-screen bg-sky-500">
+  <h1>Pages#home</h1>
+  <p class="heading-gradient">Find me in app/views/pages/home.html.erb</p>
+  <% if user_signed_in? %>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+          <p class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            <%= link_to "My Bookmarks" , "/myBookmarks" %>
+          </p>
+          <p class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            <%= link_to "My Track Notes" , "/myTrackNotes" %>
+          </p>
+          <p class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            <%= link_to "Sign out" , destroy_user_session_path, method: :delete %>
+          </p>
+        </div>
+        <div>
+          <p class="inline-block rounded text-white mt-0">
+            <%= link_to user_profiles_path do %>
+              <svg class="w-5 h-5">
+                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                  d="M 10 0 C 4.46875 0 0 4.480469 0 10 C 0 15.523438 4.476562 20 10 20 C 15.550781 20 20 15.503906 20 10 C 20 4.46875 15.515625 0 10 0 Z M 15.144531 15.890625 C 13.71875 17.140625 11.914062 17.820312 10 17.820312 C 8.085938 17.820312 6.28125 17.140625 4.855469 15.890625 C 4.660156 15.722656 4.574219 15.460938 4.625 15.210938 C 5.117188 12.804688 6.652344 10.910156 8.601562 10.285156 C 7.582031 9.683594 6.882812 8.445312 6.882812 7.015625 C 6.882812 4.992188 8.28125 3.355469 10 3.355469 C 11.71875 3.355469 13.117188 4.992188 13.117188 7.015625 C 13.117188 8.445312 12.417969 9.683594 11.398438 10.285156 C 13.351562 10.910156 14.882812 12.804688 15.375 15.210938 C 15.425781 15.460938 15.339844 15.722656 15.144531 15.890625 Z M 15.144531 15.890625 " />
+              </svg>
+              <% end %>
+          </p>
         </div>
       </div>
-      <div class="flex justify-center">
-        <p id="size">medium</p>
-      </div>
-    </div>
-    <%# List of recent tracks %>
-    <div class="flex justify-center">
-      <div class="flex flex-col">
-        <% @recentTracks.each do |track| %>
-          <% if isNowPlaying(track) %>
-            <p class="text-indigo-600">Now Playing!</p>
-            <div class="flex items-start px-4 py-6 border-solid border-2 border-indigo-600 ">
-              <% track[:image].each do |img| %>
-                <img class="object-cover mr-4 shadow" name=<%=img[:size] %> src=<%= img[:"#text"] %>
-                                  hidden />
-              <% end %>
-              <p
-                                      class="flex items-center justify-between text-lg font-semibold text-gray-900 -mt-1">
-                <%= getTrackName(track) %> by <%= getTrackArtist(track) %>
-              </p>
-            </div>
-          <% else %>
-            <div class="flex items-start px-4 py-6" name="trackWrapper">
-              <% track[:image].each do |img| %>
-                <img class="object-cover mr-4 shadow" name=<%=img[:size] %> src=<%= img[:"#text"] %>
-                                    hidden />
-              <% end %>
-              <p
-                                        class="flex items-center justify-between text-lg font-semibold text-gray-900 -mt-1">
-                <span class="trackName"><%= getTrackName(track) %></span> by <span class="artist"><%= getTrackArtist(track) %></span>
-              </p>
-              <br />
-              <div class="moreTrackInfoWrapper">
-                <button class="moreTrackInfoButton" type="button">More Info</button>
-                <div class="moreTrackInfo" hidden>Track Info:</div>
+    </nav>
+    <% else %>
+      <p class="link">
+        <%= link_to "Sign In" , new_user_session_path %>
+      </p>
+      <p class="link">
+        <%= link_to "Sign Up" , new_user_registration_path %>
+      </p>
+      <% end %>
+        <div>
+          <div class="flex justify-center">
+            <h2>Recent Tracks</h2>
+          </div>
+          <% if current_user && current_user.user_profile && current_user.user_profile.lastfmUsername %>
+            <%# Choose Image Size %>
+              <div>
+                <div class="flex justify-center">
+                  <div class="flex flex-row">
+                    <label for="small" class="inline-flex items-center mt-3 px-3 ">
+                      <input type="radio" name="imagesize" value="small">
+                      <span class="ml-2 text-gray-700">small</span>
+                    </label>
+                    <label for="medium" class="inline-flex items-center mt-3 px-3 ">
+                      <input type="radio" name="imagesize" value="medium" checked>
+                      <span class="ml-2 text-gray-700">medium</span>
+                    </label>
+                    <label for="large" class="inline-flex items-center mt-3 px-3 ">
+                      <input type="radio" name="imagesize" value="large">
+                      <span class="ml-2 text-gray-700">large</span>
+                    </label>
+                    <label for="extralarge" class="inline-flex items-center mt-3 px-3 ">
+                      <input type="radio" name="imagesize" value="extralarge">
+                      <span class="ml-2 text-gray-700">extralarge</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="flex justify-center">
+                  <p id="size">medium</p>
+                </div>
               </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
-    <p> Your recently listened tracks will be shown here IF you add your Last.fm
-      User Name! </p>
-  <% end %>
-</div>
+              <%# List of recent tracks %>
+                <div class="flex justify-center">
+                  <div class="flex flex-col">
+                    <% @recentTracks.each do |track| %>
+                      <% if isNowPlaying(track) %>
+                        <p class="text-indigo-600">Now Playing!</p>
+                        <div class="flex items-start px-4 py-6 border-solid border-2 border-indigo-600 "
+                          name="trackWrapper">
+                          <% track[:image].each do |img| %>
+                            <img class="object-cover mr-4 shadow" name=<%=img[:size] %> src=<%= img[:"#text"] %>
+                              hidden />
+                              <% end %>
+                                <p class="flex items-center justify-between text-lg font-semibold text-gray-900 -mt-1">
+                                  <span class="trackName">
+                                    <%= getTrackName(track) %>
+                                  </span><span class="whitespace-pre"> by </span><span class="artist">
+                                    <%= getTrackArtist(track) %>
+                                  </span>
+                                </p>
+                                <br />
+                                <div class="moreTrackInfoWrapper">
+                                  <button class="moreTrackInfoButton" type="button">More Info</button>
+                                  <div class="moreTrackInfo" hidden>Track Info:</div>
+                                </div>
+                        </div>
+                        <% else %>
+                          <div class="flex items-start px-4 py-6" name="trackWrapper">
+                            <% track[:image].each do |img| %>
+                              <img class="object-cover mr-4 shadow" name=<%=img[:size] %> src=<%= img[:"#text"] %>
+                                hidden />
+                                <% end %>
+                                  <p
+                                    class="flex items-center justify-between text-lg font-semibold text-gray-900 -mt-1">
+                                    <span class="trackName">
+                                      <%= getTrackName(track) %>
+                                    </span><span class="whitespace-pre"> by </span><span class="artist">
+                                      <%= getTrackArtist(track) %>
+                                    </span>
+                                  </p>
+                                  <br />
+                                  <div class="moreTrackInfoWrapper">
+                                    <button class="moreTrackInfoButton" type="button">More Info</button>
+                                    <div class="moreTrackInfo" hidden>Track Info:</div>
+                                  </div>
+                          </div>
+                          <% end %>
+                            <% end %>
+                  </div>
+                </div>
+                <% else %>
+                  <p> Your recently listened tracks will be shown here IF you add your Last.fm
+                    User Name! </p>
+                  <% end %>
+        </div>
+</body>
